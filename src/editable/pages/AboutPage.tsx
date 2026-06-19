@@ -1,44 +1,65 @@
 import Link from 'next/link'
+import { ArrowRight, Globe2, Newspaper, Radio, ShieldCheck } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/site-config'
 import { pagesContent } from '@/editable/content/pages.content'
 import { EditableSiteShell } from '@/editable/shell/EditableSiteShell'
 
+const values = [
+  { icon: Newspaper, title: 'Media-first publishing', description: 'Announcements, press releases, coverage notes, and public updates are structured so readers can scan quickly and continue deeper.' },
+  { icon: Radio, title: 'Distribution clarity', description: 'The site keeps routes, categories, and search surfaces aligned around real media distribution posts.' },
+  { icon: ShieldCheck, title: 'Trust and context', description: 'Every page favors clear hierarchy, readable summaries, and task-specific detail pages that make updates feel credible.' },
+]
+
 export default function AboutPage() {
+  const mediaRoute = SITE_CONFIG.taskViews.mediaDistribution || '/media-distribution'
+
   return (
     <EditableSiteShell>
-      <main className="bg-[#f7f4ef] text-[#111]">
-        <section className="border-b border-black bg-[#c92f2f] text-white">
-          <div className="mx-auto max-w-[var(--editable-container)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-            <p className="text-xs font-black uppercase tracking-[0.28em]">{pagesContent.about.badge}</p>
-            <h1 className="editorial-brand mt-5 max-w-5xl text-6xl font-black leading-[0.92] tracking-[-0.055em] sm:text-8xl">
-              Independent media, built for clear stories.
-            </h1>
+      <main className="bg-white text-[#090821]">
+        <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr]">
+            <div className="editable-reveal">
+              <p className="inline-flex rounded-full border border-[var(--slot4-border)] px-4 py-2 text-sm font-bold text-[var(--slot4-accent)]">{pagesContent.about.badge}</p>
+              <h1 className="mt-7 max-w-4xl text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">A focused media distribution hub for public updates.</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--slot4-muted-text)]">{pagesContent.about.description}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href={mediaRoute} className="inline-flex items-center gap-2 rounded-full bg-[var(--slot4-accent)] px-7 py-3.5 text-sm font-black text-white">Browse media updates <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-[var(--slot4-border)] bg-white px-7 py-3.5 text-sm font-black">Contact desk</Link>
+              </div>
+            </div>
+            <div className="editable-dark-panel editable-rise p-8 sm:p-10">
+              <div className="relative z-10">
+                <Globe2 className="h-9 w-9 text-[var(--slot4-accent)]" />
+                <h2 className="mt-8 text-4xl font-extrabold leading-tight">Built for press releases, public relations, and newsroom discovery.</h2>
+                <p className="mt-5 text-base leading-8 text-white/70">Visitors can move from the homepage to archives, search, and detail pages without losing the thread of what was published and why it matters.</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-[var(--editable-container)] border-x border-black bg-white lg:grid-cols-[1.45fr_0.55fr]">
-          <article className="border-b border-black p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-16">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-[#c92f2f]">About {SITE_CONFIG.name}</p>
-            <p className="editorial-serif mt-6 text-3xl font-bold leading-[1.25] sm:text-4xl">{pagesContent.about.description}</p>
-            <div className="article-content mt-10 space-y-6">
-              {pagesContent.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <section className="bg-[#f8f9fd]">
+          <div className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+            <div className="grid gap-6 md:grid-cols-3">
+              {values.map((value, index) => {
+                const Icon = value.icon
+                return (
+                  <div key={value.title} className="editable-card editable-rise p-7" style={{ animationDelay: `${index * 90}ms` }}>
+                    <Icon className="h-7 w-7 text-[var(--slot4-accent)]" />
+                    <h2 className="mt-6 text-2xl font-extrabold">{value.title}</h2>
+                    <p className="mt-3 text-sm leading-7 text-[var(--slot4-muted-text)]">{value.description}</p>
+                  </div>
+                )
+              })}
             </div>
-          </article>
-          <aside className="grid bg-[#f7f4ef]">
-            {pagesContent.about.values.map((value, index) => (
-              <div key={value.title} className="border-b border-black p-7 last:border-b-0 sm:p-9">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#c92f2f]">0{index + 1}</p>
-                <h2 className="editorial-serif mt-4 text-3xl font-black leading-tight">{value.title}</h2>
-                <p className="mt-4 text-sm leading-7 text-black/65">{value.description}</p>
-              </div>
-            ))}
-          </aside>
+          </div>
         </section>
 
-        <section className="border-y border-black bg-[#171717] text-white">
-          <div className="mx-auto flex max-w-[var(--editable-container)] flex-col gap-6 px-4 py-12 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <h2 className="editorial-brand max-w-3xl text-4xl font-black leading-none sm:text-5xl">Read the stories shaping the conversation.</h2>
-            <Link href="/search" className="inline-flex w-fit bg-[#c92f2f] px-6 py-4 text-xs font-black uppercase tracking-[0.18em]">Explore the archive</Link>
+        <section className="mx-auto max-w-[1200px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="rounded-[1.1rem] border border-[var(--slot4-border)] bg-white p-8 shadow-[0_18px_60px_rgba(15,23,42,.06)] sm:p-10">
+            <p className="text-sm font-black text-[var(--slot4-accent)]">About {SITE_CONFIG.name}</p>
+            <div className="mt-5 grid gap-8 lg:grid-cols-2">
+              {pagesContent.about.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-[var(--slot4-muted-text)]">{paragraph}</p>)}
+            </div>
           </div>
         </section>
       </main>
