@@ -6,15 +6,15 @@ export const pagesContent = {
       title: 'News, media, and public updates',
       description: 'Explore announcements, newsroom updates, media coverage, and dynamic categories through a clean distribution experience.',
       openGraphTitle: 'News, media, and public updates',
-      openGraphDescription: 'Discover articles, visual posts, and connected content through a calmer reading-first experience.',
-      keywords: ['story platform', 'article site', 'visual content', 'content discovery'],
+      openGraphDescription: 'Discover press releases, newsroom notes, public relations updates, and media coverage through a clean distribution experience.',
+      keywords: ['media distribution', 'press release', 'news media', 'public relations'],
     },
     hero: {
       badge: 'Latest media and newsroom updates',
       title: ['A flexible home for', 'news, media, and public updates.'],
       description: 'Browse distributed media, company announcements, press coverage, and public updates across categories managed directly from the master panel.',
-      primaryCta: { label: 'Browse latest updates', href: '/updates' },
-      secondaryCta: { label: 'Open News Media', href: '/updates?category=news-media' },
+      primaryCta: { label: 'Browse latest updates', href: '/media-distribution' },
+      secondaryCta: { label: 'Open News Media', href: '/media-distribution?category=news-media' },
       searchPlaceholder: 'Search news, companies, categories, and updates',
       focusLabel: 'Focus',
       featureCardBadge: 'latest cover rotation',
@@ -53,11 +53,11 @@ export const pagesContent = {
   },
   about: {
     badge: 'Our Story',
-    title: 'A calmer, clearer way to explore content.',
-    description: `${slot4BrandConfig.siteName} is built to make long-form reading, visual discovery, and supporting resources feel like one unified experience.`,
+    title: 'A clearer way to distribute and discover media updates.',
+    description: `${slot4BrandConfig.siteName} is built for press releases, newsroom announcements, public relations updates, and media coverage that need to be found quickly.`,
     paragraphs: [
-      'Instead of splitting everything into disconnected pages, the platform keeps related content easy to move through and easy to understand.',
-      'Whether someone starts with an article, listing, image post, or resource page, they can continue exploring without losing context.',
+      'Instead of burying public updates in disconnected pages, the platform keeps media distribution content easy to browse, search, and understand.',
+      'Whether someone starts with a press release, newsroom update, category page, or search result, they can continue exploring without losing context.',
     ],
     values: [
       {
@@ -76,8 +76,8 @@ export const pagesContent = {
   },
   contact: {
     eyebrow: `Contact ${slot4BrandConfig.siteName}`,
-    title: 'A support page that matches the product, not a generic contact form.',
-    description: 'Tell us what you are trying to publish, fix, or launch. We will route it through the right lane instead of forcing every request into the same support bucket.',
+    title: 'Reach the media distribution desk.',
+    description: 'Tell us what you are trying to publish, correct, distribute, or promote. We will route your message through the right lane instead of forcing every request into the same bucket.',
     formTitle: 'Send a message',
   },
 
@@ -88,8 +88,8 @@ export const pagesContent = {
     },
     hero: {
       badge: 'Search the archive',
-      title: 'Find stories, listings, visuals, and resources faster.',
-      description: 'Use keywords, categories, and content types to discover posts from every active section of the site.',
+      title: 'Find press releases and media updates faster.',
+      description: 'Use keywords, categories, and content types to discover real posts from every active media distribution section of the site.',
       placeholder: 'Search by keyword, topic, category, or title',
     },
     resultsTitle: 'Latest searchable content',
@@ -106,8 +106,8 @@ export const pagesContent = {
     },
     hero: {
       badge: 'Publishing workspace',
-      title: 'Create content for every active section.',
-      description: 'Choose the content type, add details, and prepare a clean post with images, links, summary, and body content.',
+      title: 'Create media-ready distribution content.',
+      description: 'Choose the content type, add details, and prepare a clean media update with source links, category context, summary, and body content.',
     },
     formTitle: 'Content details',
     submitLabel: 'Submit content',
